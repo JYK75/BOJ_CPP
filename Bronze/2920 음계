@@ -1,0 +1,51 @@
+#include <bits/stdc++.h>
+
+int main()
+{
+	int arr[9] = {};
+	for (int i = 1; i <= 8; ++i)
+	{
+		std::cin >> arr[i];
+	}
+
+	bool check = true;
+	int count = 7;
+
+	switch (arr[1])
+	{
+	case 1:
+		for (int i = 2; i <= 8; ++i)
+		{
+			if (arr[i] != i)
+			{
+				std::cout << "mixed";
+				check = false;
+				break;
+			}
+
+		}
+		if(check)
+			std::cout << "ascending";
+
+		break;
+	case 8:
+		for (int i = 2; i <= 8; ++i)
+		{
+			if (arr[i] != count--)
+			{
+				std::cout << "mixed";
+				check = false;
+				break;
+			}
+		}
+		if (check)
+			std::cout << "descending";
+
+		break;
+	default:
+		std::cout << "mixed";
+		break;
+	}
+
+	return 0;
+}
