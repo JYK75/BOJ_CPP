@@ -1,0 +1,23 @@
+#include <bits/stdc++.h>
+
+int main()
+{
+	std::string str;
+	std::cin >> str;
+
+	std::string result = "";
+	for (int i = 0; i < str.size(); ++i)
+	{
+		if (i % 10 == 0 && i != 0)
+		{
+			std::cout << result << std::endl;
+			result = "";
+		}
+		result += str[i];
+	}
+
+	if(!result.empty())
+		std::cout << result << std::endl;
+
+	return 0;
+}
