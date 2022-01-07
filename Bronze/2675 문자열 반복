@@ -1,0 +1,29 @@
+#include <bits/stdc++.h>
+
+int main()
+{
+	int T; 
+	std::cin >> T;
+
+	while (T--)
+	{
+		int num;
+		std::cin >> num;
+
+		std::string str;
+		std::cin >> str;
+
+		std::string result = "";
+		for (int i = 0; i < str.size(); ++i)
+		{
+			for (int j = 0; j < num; ++j)
+			{
+				result += str[i];
+			}
+		}
+		
+		std::cout << result << std::endl;
+	}
+	
+	return 0;
+}
