@@ -1,0 +1,44 @@
+#include <bits/stdc++.h>
+
+int main()
+{
+	std::string str;
+	std::cin >> str;
+
+	std::map<char, int> data;
+	for (int i = 0; i < str.size(); ++i)
+	{
+		char temp;
+		if (str[i] >= 97)
+			temp = str[i] - 32;
+		else
+			temp = str[i];
+
+		data[temp]++;
+	}
+	
+	int max = 0;
+	char result;
+	for (auto d : data)
+	{
+		if (d.second > max)
+		{
+			result = d.first;
+			max = d.second;
+		}
+	}
+
+	int count = 0;
+	for (auto d : data)
+	{
+		if (max == d.second)
+			count++;
+	}
+
+	if (count >= 2)
+		result = '?';
+
+	std::cout << result;
+
+	return 0;
+}
