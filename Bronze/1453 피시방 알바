@@ -1,0 +1,25 @@
+#include <bits/stdc++.h>
+
+int main()
+{
+	bool pc[101] = { false, };
+	
+	int N;
+	std::cin >> N;
+
+	int result = 0;
+	while (N--)
+	{
+		int people;
+		std::cin >> people;
+
+		if (!pc[people])
+			pc[people] = true;
+		else
+			result++;
+	}
+
+	std::cout << result;
+
+	return 0;
+}
