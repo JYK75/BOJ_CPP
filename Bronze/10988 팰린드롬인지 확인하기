@@ -1,0 +1,27 @@
+#include <bits/stdc++.h>
+
+int main()
+{
+	std::string str;
+	std::cin >> str;
+	
+	int start = 0;
+	int end = str.size() - 1;
+
+	int result = 1;
+	while (start <= end)
+	{
+		if (str[start] != str[end])
+		{
+			result = 0;
+			break;
+		}
+
+		start++;
+		end--;
+	}
+
+	std::cout << result;
+
+	return 0;
+}
