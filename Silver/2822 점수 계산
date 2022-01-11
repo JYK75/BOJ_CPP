@@ -1,0 +1,39 @@
+#include <bits/stdc++.h>
+
+bool cmp(const std::pair<int, int>& a, const std::pair<int, int>& b)
+{
+	return a.second > b.second;
+}
+
+int main()
+{
+	std::vector<std::pair<int, int>> score;
+
+	int index = 1;
+	for (int i = 0; i < 8; ++i)
+	{
+		int number;
+		std::cin >> number;
+
+		std::pair<int, int> data = { index++, number };
+		score.push_back(data);
+	}
+	
+	std::sort(score.begin(), score.end(), cmp);
+
+	int result = score[0].second + score[1].second + score[2].second 
+		+ score[3].second + score[4].second;
+	
+	std::cout << result << std::endl;
+
+	std::vector<int> scoreIdx;
+	for (int i = 0; i < 5; ++i)
+		scoreIdx.push_back(score[i].first);
+
+	std::sort(scoreIdx.begin(), scoreIdx.end());
+
+	for (int i = 0; i < 5; ++i)
+		std::cout << scoreIdx[i] << ' ';
+
+	return 0;
+}
