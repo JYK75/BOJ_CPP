@@ -1,0 +1,18 @@
+#include <bits/stdc++.h>
+
+int main()
+{
+	int number;
+	std::cin >> number;
+	std::vector<int> data;
+	while (number > 0)
+	{
+		data.push_back(number % 10);
+		number /= 10;
+	}
+	std::sort(data.begin(), data.end(), std::greater<>());
+	for (int i = 0; i < data.size(); ++i)
+		std::cout << data[i];
+
+	return 0;
+}
