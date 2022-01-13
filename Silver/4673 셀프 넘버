@@ -1,0 +1,31 @@
+#include <bits/stdc++.h>
+
+bool arr[10001];
+
+int main()
+{
+	for (int i = 1; i <= 10000; ++i)
+		arr[i] = false;
+
+	for (int i = 1; i <= 10000; ++i)
+	{
+		int number = i;
+		int n = i;
+		while (n > 0)
+		{
+			number += n % 10;
+			n /= 10;
+		}
+		
+		if (number <= 10000)
+			arr[number] = true;
+	}
+
+	for (int i = 1; i <= 10000; ++i)
+	{
+		if (arr[i] == false)
+			std::cout << i << std::endl;
+	}
+
+	return 0;
+}
