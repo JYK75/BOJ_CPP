@@ -1,0 +1,67 @@
+#include <bits/stdc++.h>
+
+int BingoCheck(bool board[5][5])
+{
+	int lineCount = 0;
+
+	for (int i = 0; i < 5; ++i)
+	{
+		if (board[i][0] && board[i][1] && board[i][2] &&
+			board[i][3] && board[i][4])
+			lineCount += 1;
+		
+		if (board[0][i] && board[1][i] && board[2][i] &&
+			board[3][i] && board[4][i])
+			lineCount += 1;
+	}
+
+	if (board[0][0] && board[1][1] && board[2][2] &&
+		board[3][3] && board[4][4])
+		lineCount += 1;
+
+	if (board[0][4] && board[1][3] && board[2][2] &&
+		board[3][1] && board[4][0])
+		lineCount += 1;
+
+	return lineCount;
+}
+
+
+int main()
+{
+	int board[5][5];
+	bool bingoCheck[5][5] = { false, };
+
+	for (int i = 0; i < 5; ++i)
+		for (int j = 0; j < 5; ++j)
+			std::cin >> board[i][j];
+
+	int callNumber[25];
+	for (int i = 0; i < 25; ++i)
+		std::cin >> callNumber[i];
+	
+	int turn = 0;
+	int lineCount = 0;
+	for (int i = 0; i < 25; ++i)
+	{
+		turn += 1;
+		
+		for (int j = 0; j < 5; ++j)
+		{
+			for (int k = 0; k < 5; ++k)
+			{
+				if (board[j][k] == callNumber[i])
+				{
+					bingoCheck[j][k] = true;
+				}
+			}
+		}
+			
+		if (BingoCheck(bingoCheck) >= 3)
+			break;
+	}
+
+	std::cout << turn;
+
+	return 0;
+}
