@@ -1,0 +1,31 @@
+#include <bits/stdc++.h>
+
+int main()
+{
+	int N;
+	std::cin >> N;
+
+	int result = 0;
+	for (int i = 4; i <= N; ++i)
+	{
+		std::string str = std::to_string(i);
+		bool number47 = true;
+		for (int j = 0; j < str.size(); ++j)
+		{
+			if (str[j] == '4' || str[j] == '7')
+				continue;
+			else
+			{
+				number47 = false;
+				break;
+			}
+		}
+		if (number47)
+		{
+			result = i;
+		}
+	}
+
+	std::cout << result;
+	return 0;
+}
