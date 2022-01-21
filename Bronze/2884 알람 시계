@@ -1,0 +1,24 @@
+#include <bits/stdc++.h>
+
+int main()
+{
+	std::ios::sync_with_stdio(0);
+	std::cin.tie(0);
+
+	int H, M; 
+	std::cin >> H >> M;
+
+	if (M >= 45)
+		std::cout << H << " " << M - 45;
+	else
+	{
+		M = 60 + (M - 45);
+		H -= 1;
+		if (H == -1)
+			H = 23;
+
+		std::cout << H << " " << M;
+	}
+
+	return 0;
+}
