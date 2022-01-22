@@ -1,0 +1,30 @@
+#include <bits/stdc++.h>
+
+int main()
+{
+	std::ios::sync_with_stdio(0);
+	std::cin.tie(0);
+	while (true)
+	{
+		int arr[3];
+		std::cin >> arr[0] >> arr[1] >> arr[2];
+		if (arr[0] == 0 && arr[1] == 0 && arr[2] == 0)
+			break;
+
+		for (int i = 0; i < 2; ++i)
+		{
+			if (arr[i] > arr[i + 1])
+			{
+				int temp = arr[i + 1];
+				arr[i + 1] = arr[i];
+				arr[i] = temp;
+			}
+		}
+
+		if((arr[0]*arr[0]) + (arr[1] * arr[1]) == (arr[2] * arr[2]))
+			std::cout << "right" << std::endl;
+		else
+			std::cout << "wrong" << std::endl;
+	}
+	return 0;
+}
