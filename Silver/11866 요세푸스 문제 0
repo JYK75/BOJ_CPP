@@ -1,0 +1,45 @@
+#include <bits/stdc++.h>
+
+int main()
+{
+	std::ios::sync_with_stdio(0);
+	std::cin.tie(0);
+	
+	int n, k;
+	std::cin >> n >> k;
+
+	std::queue<int> circle;
+	for (int i = 1; i <= n; ++i)
+		circle.push(i);
+
+	std::cout << "<";
+	int count = 0;
+	while (!circle.empty())
+	{
+		count++;
+		
+		if (count == k)
+		{
+			count = 0;
+		
+			if (circle.size() != 1)
+			{
+				std::cout << circle.front() << ", ";
+				circle.pop();
+			}
+			else
+			{
+				std::cout << circle.front();
+				circle.pop();
+			}
+		}
+		else
+		{
+			circle.push(circle.front());
+			circle.pop();
+		}
+	}
+	std::cout << ">";
+
+	return 0;
+}
