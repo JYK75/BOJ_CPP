@@ -1,0 +1,22 @@
+#include <bits/stdc++.h>
+
+int main()
+{
+	std::ios::sync_with_stdio(0);
+	std::cin.tie(0);
+
+	int x, y, w, h;
+	std::cin >> x >> y >> w >> h;
+
+	int result1, result2;
+
+	result1 = abs(w - x) < abs(h - y) ? abs(w - x) : abs(h - y);
+	result2 = x > y ? y : x;
+
+	if (result1 > result2)
+		std::cout << result2;
+	else
+		std::cout << result1;
+
+	return 0;
+}
