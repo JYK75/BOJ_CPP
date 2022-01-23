@@ -1,0 +1,71 @@
+#include <bits/stdc++.h>
+
+int main()
+{
+	std::ios::sync_with_stdio(0);
+	std::cin.tie(0);
+	
+	std::string answerW[8] =
+	{ {"WBWBWBWB"},
+		{"BWBWBWBW"},
+		{"WBWBWBWB"},
+		{"BWBWBWBW"},
+		{"WBWBWBWB"},
+		{"BWBWBWBW"},
+		{"WBWBWBWB"},
+		{"BWBWBWBW"} };
+	std::string answerB[8] =
+	{ {"BWBWBWBW"},
+		{"WBWBWBWB"},
+		{"BWBWBWBW"},
+		{"WBWBWBWB"},
+		{"BWBWBWBW"},
+		{"WBWBWBWB"},
+		{"BWBWBWBW"},
+		{"WBWBWBWB"} };
+
+	int n, m; std::cin >> n >> m;
+
+	std::string board[51];
+
+	for (int i = 0; i < n; ++i)
+	{
+		std::cin >> board[i];
+	}
+
+	int result = 65;
+	for (int i = 0; i < n - 7; ++i)
+	{
+		for (int j = 0; j < m - 7; ++j)
+		{
+			int count1 = 0, count2 = 0;
+
+			int x = 0, y = 0;
+			for (int k = i; k < i+8; ++k)
+			{
+				for (int l = j; l < j + 8; ++l)
+				{
+					if (board[k][l] != answerW[x][y])
+						count1++;
+
+					if (board[k][l] != answerB[x][y])
+						count2++;
+
+					++y;
+				}
+				++x;
+				y = 0;
+			}
+
+			if (count1 < result)
+				result = count1;
+
+			if (count2 < result)
+				result = count2;
+		}
+	}
+
+	std::cout << result;
+
+	return 0;
+}
