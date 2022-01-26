@@ -1,0 +1,35 @@
+#include <bits/stdc++.h>
+
+bool cmp(const std::pair<int, int>& left, const std::pair<int, int>& right)
+{
+	if (left.first == right.first)
+		return left.second < right.second;
+
+	return left.first < right.first;
+}
+
+int main()
+{
+	std::ios::sync_with_stdio(0);
+	std::cin.tie(0);
+
+	int N;
+	std::cin >> N;
+	
+	std::pair<int, int> number;
+	std::vector<std::pair<int, int>> table;
+	for (int i = 0; i < N; ++i)
+	{
+		std::cin >> number.first >> number.second;
+		table.push_back(number);
+	}
+	
+
+	std::sort(table.begin(), table.end(), cmp);
+	for (int i = 0; i < N; ++i)
+	{
+		std::cout << table[i].first << ' ' << table[i].second << '\n';
+	}
+
+	return 0;
+}
