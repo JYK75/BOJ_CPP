@@ -1,0 +1,54 @@
+#include <iostream>
+#include <queue>
+#include <algorithm>
+
+int main(void)
+{
+    std::ios::sync_with_stdio(0);
+    std::cin.tie(0);
+
+    int n;
+    std::cin >> n;
+    while (n--)
+    {
+        int N, M;
+        std::cin >> N >> M;
+        std::queue<std::pair<int, int>> print;
+        std::vector<int> data;
+        for (int i = 0; i < N; ++i)
+        {
+            int number;
+            std::cin >> number;
+            print.push({ i,number });
+            data.push_back(number);
+        }
+        
+        std::sort(data.rbegin(), data.rend());
+
+        int count = 0;
+        int idx = 0;
+        while (!print.empty())
+        {
+            if (print.front().second == data[idx])
+            {
+                count++;
+                if (print.front().first == M)
+                {
+                    break;
+                }
+                print.pop();
+                idx++;
+            }
+            else
+            {
+                std::pair<int, int> temp = print.front();
+                print.pop();
+                print.push(temp);
+            }
+        }
+
+        std::cout << count << '\n';
+    }
+
+    return 0;
+}
