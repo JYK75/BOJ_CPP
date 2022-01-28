@@ -1,0 +1,66 @@
+#include <iostream>
+#include <vector>
+#include <stack>
+#include <algorithm>
+
+int main(void)
+{
+    std::ios::sync_with_stdio(0);
+    std::cin.tie(0);
+
+    int n;
+    std::cin >> n;
+
+    std::vector<int> data;
+    std::stack<int> line;
+    for (int i = 0; i < n; ++i)
+    {
+        int num;
+        std::cin >> num;
+        data.push_back(num);
+    }
+
+    int idx = 0;
+    int count = 1;
+    std::vector<char> result;
+    bool isPossible = true;
+    while (idx < n)
+    {
+        if (line.empty())
+        {
+            line.push(count);
+            result.emplace_back('+');
+            count++;
+            continue;
+        }
+
+        if (count > n+1)
+        {
+            isPossible = false;
+            break;
+        }
+
+        if (line.top() == data[idx])
+        {
+            line.pop();
+            result.emplace_back('-');
+            idx++;
+        }
+        else
+        {
+            line.push(count);
+            result.emplace_back('+');
+            count++;
+        }
+    }
+    
+    if (isPossible)
+    {
+        for (int i = 0; i < result.size(); ++i)
+            std::cout << result[i] << '\n';
+    }
+    else
+        std::cout << "NO";
+
+    return 0;
+}
