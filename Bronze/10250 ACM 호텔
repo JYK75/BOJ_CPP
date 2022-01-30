@@ -1,0 +1,39 @@
+#include <iostream>
+
+int main()
+{
+    std::ios::sync_with_stdio(0);
+    std::cin.tie(0);
+
+    int T; 
+    std::cin >> T;
+    while (T--)
+    {
+        int height, weight, num;
+        std::cin >> height >> weight >> num;
+        
+        int roomNumber = 0;
+        int count = 0;
+        for (int i = 1; i <= weight; ++i)
+        {
+            for (int j = 1; j <= height; ++j)
+            {
+                count += 1;
+                if (count == num)
+                {
+                    roomNumber += j * 100;
+                    roomNumber += i;
+                    break;
+                }
+            }
+            if (count == num)
+            {
+                break;
+            }
+        }
+
+        std::cout << roomNumber << '\n';
+    }
+
+    return 0;
+}
