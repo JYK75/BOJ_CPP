@@ -1,0 +1,38 @@
+#include <iostream>
+#include <string>
+#include <stack>
+
+int main()
+{
+    int n;
+    std::cin >> n;
+
+    int result = 0, temp = 0, number = 0;
+    for (int i = 1; i <= n; ++i)
+    {
+        number = i;
+        temp = i;
+        if (number >= 10)
+        {
+            while (number > 0)
+            {
+                temp += number % 10;
+                number /= 10;
+            }
+        }
+        else
+        {
+            temp += i;
+        }
+
+        if (temp == n)
+        {
+            result = i;
+            break;
+        }
+    }
+
+    std::cout << result;
+
+    return 0;
+};
