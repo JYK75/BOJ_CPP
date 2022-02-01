@@ -1,0 +1,49 @@
+#include <iostream>
+#include <string>
+#include <stack>
+
+int main()
+{
+    int T;
+    std::cin >> T;
+
+    while (T--)
+    {
+        int M;
+        char type;
+        std::cin >> M >> type;
+
+        int arrNum[500];
+        char arrAlpha[500];
+
+        if (type == 'C')
+        {
+            for (int i = 0; i < M; ++i)
+            {
+                std::cin >> arrAlpha[i];
+            }
+
+            for (int i = 0; i < M; ++i)
+            {
+                std::cout << (int)arrAlpha[i] - 'A' + 1 << ' ';
+            }
+            std::cout << '\n';
+        }
+        else
+        {
+            for (int i = 0; i < M; ++i)
+            {
+                std::cin >> arrNum[i];
+            }
+
+            for (int i = 0; i < M; ++i)
+            {
+                char temp = 'A' + arrNum[i] - 1;
+                std::cout << temp << ' ';
+            }
+            std::cout << '\n';
+        }
+    }
+
+    return 0;
+}
