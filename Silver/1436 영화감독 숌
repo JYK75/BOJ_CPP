@@ -1,0 +1,30 @@
+#include <bits/stdc++.h>
+
+int main()
+{
+	std::ios::sync_with_stdio(0);
+	std::cin.tie(0);
+
+	int n;
+	std::cin >> n;
+
+	int count = 0;
+
+	long long number = 666;
+	while(1)
+	{
+		if (std::to_string(number).find("666") != std::string::npos)
+			count++;
+
+		if (count == n)
+		{
+			break;
+		}
+
+		number++;
+	}
+	
+	std::cout << number;
+
+	return 0;
+}
