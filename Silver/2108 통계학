@@ -1,0 +1,55 @@
+#include <bits/stdc++.h>
+
+int main()
+{
+	std::ios::sync_with_stdio(0);
+	std::cin.tie(0);
+
+	int n;
+	std::cin >> n;
+
+	std::vector<int> data;
+	std::map<int, int> table;
+
+	double avg = 0;
+	for (int i = 0; i < n; ++i)
+	{
+		int num;
+		std::cin >> num;
+
+		avg += num;
+		data.emplace_back(num);
+		table[num]++;
+	}
+
+	std::sort(data.begin(), data.end());
+
+	int max = 0;
+	for (auto t : table)
+	{
+		if (t.second > max)
+			max = t.second;
+	}
+
+	std::vector<int> num;
+	for (auto t : table)
+	{
+		if (t.second == max)
+			num.emplace_back(t.first);
+	}
+
+	int result;
+	if (num.size() == 1)
+		result = num[0];
+	else
+		result = num[1];
+
+	std::cout << std::fixed;
+	std::cout.precision(0);
+	std::cout << avg / n << '\n';
+	std::cout << data[data.size() / 2] << '\n';
+	std::cout << result << '\n';
+	std::cout << data[data.size() - 1] - data[0] << '\n';
+
+	return 0;
+}
