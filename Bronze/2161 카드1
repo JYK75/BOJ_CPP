@@ -1,0 +1,28 @@
+#include <bits/stdc++.h>
+
+int main()
+{
+	std::ios::sync_with_stdio(0);
+	std::cin.tie(0);
+
+	int n;
+	std::cin >> n;
+
+	std::list<int> deck;
+	for (int i = n; i > 0; --i)
+	{
+		deck.push_back(i);
+	}
+
+	while (deck.size() > 1)
+	{
+		std::cout << deck.back() << ' ';
+		deck.pop_back();
+		deck.push_front(deck.back());
+		deck.pop_back();
+	}
+	
+	std::cout << deck.front();
+
+	return 0;
+}
