@@ -1,0 +1,53 @@
+#include <bits/stdc++.h>
+
+int arr[500001] = { 0, };
+
+void BinarySearch(int arr[], int n, int size)
+{
+	int start = 0;
+	int end = size - 1;
+	int mid;
+	while (start <= end)
+	{
+		mid = (start + end) / 2;
+		if (arr[mid] == n)
+		{
+			std::cout << 1 << ' ';
+			return;
+		}
+		else if (arr[mid] < n)
+			start = mid + 1;
+		else
+			end = mid - 1;
+	}
+
+	std::cout << 0 << ' ';
+	return;
+}
+
+int main()
+{
+	std::ios::sync_with_stdio(0);
+	std::cin.tie(0);
+
+	int n, m;
+	std::cin >> n;
+
+	int num;
+	for (int i = 0; i < n; ++i)
+	{
+		std::cin >> num;
+
+		arr[i] = num;
+	}
+	std::sort(arr, arr + n);
+
+	std::cin >> m;
+	for (int i = 0; i < m; ++i)
+	{
+		std::cin >> num;
+		BinarySearch(arr, num, n);
+	}
+
+	return 0;
+}
