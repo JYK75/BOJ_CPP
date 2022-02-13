@@ -1,0 +1,49 @@
+#include <bits/stdc++.h>
+
+int main()
+{
+	std::ios::sync_with_stdio(0);
+	std::cin.tie(0);
+
+	int k, n;
+	std::cin >> k >> n;
+
+	std::vector<long long> data;
+	long long num = 0, maxNum =0;
+	for (int i = 0; i < k; ++i)
+	{
+		std::cin >> num;
+		data.push_back(num);
+		if (maxNum < num)
+			maxNum = num;
+	}
+
+	int result = 0;
+	long long start = 1, end = maxNum;
+	long long mid;
+	while (start <= end)
+	{
+		mid = (start + end) / 2;
+		int sum = 0;
+		for (int i = 0; i < k; ++i)
+		{
+			sum += data[i] / mid;
+		}
+
+		if (sum >= n)
+		{
+			start = mid + 1;
+			
+			if (result < mid)
+				result = mid;
+		}
+		else
+		{
+			end = mid - 1;
+		}
+	}
+
+	std::cout << result;
+
+	return 0;
+}
