@@ -1,0 +1,37 @@
+#include <bits/stdc++.h>
+
+int gcd(int a, int b) 
+{
+	int n;
+
+	while (b != 0) {
+		n = a % b;
+		a = b;
+		b = n;
+	}
+
+	return a;
+}
+
+int lcm(int a, int b) 
+{
+	return a * b / gcd(a, b);
+}
+
+int main()
+{
+	std::ios::sync_with_stdio(0);
+	std::cin.tie(0);
+	
+	int T;
+	std::cin >> T;
+
+	while (T--)
+	{
+		int A, B;
+		std::cin >> A >> B;
+		
+		std::cout << lcm(A, B) << '\n';
+	}
+	return 0;
+}
