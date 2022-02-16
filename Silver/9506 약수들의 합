@@ -1,0 +1,42 @@
+#include <bits/stdc++.h>
+
+int main()
+{
+	std::ios::sync_with_stdio(0);
+	std::cin.tie(0);
+	while (1)
+	{
+		int num; 
+		std::cin >> num;
+
+		if (num == -1)
+			break;
+		
+		std::vector<int> number;
+		for (int i = 2; i < num; ++i)
+		{
+			if (num % i == 0)
+				number.emplace_back(i);
+		}
+
+		int sum = 0;
+		for (int i = 0; i < number.size(); ++i)
+			sum += number[i];
+
+		if (sum + 1 != num)
+		{
+			std::cout << num << " is NOT perfect." << '\n';
+			continue;
+		}
+		
+		std::cout << num << " = " << 1 <<" + ";
+		for (int i = 0; i < number.size(); ++i)
+		{
+			std::cout << number[i];
+			if(i != number.size()-1)
+				std::cout << " + ";
+		}
+		std::cout << '\n';
+	}
+	return 0;
+}
