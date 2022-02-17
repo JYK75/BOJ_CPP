@@ -1,0 +1,39 @@
+#include <bits/stdc++.h>
+
+
+int main()
+{
+	std::ios::sync_with_stdio(0);
+	std::cin.tie(0);
+	
+	int e, s, m;
+	std::cin >> e >> s >> m;
+
+	int result = 0;
+
+	int arr[3] = { 0, 0, 0 };
+	while (1)
+	{
+		for (int i = 0; i < 3; ++i)
+		{
+			arr[i]++;
+		}
+
+		if (arr[0] == 16)
+			arr[0] = 1;
+		if (arr[1] == 29)
+			arr[1] = 1;
+		if (arr[2] == 20)
+			arr[2] = 1;
+
+		result++;
+
+		if (arr[0] == e && arr[1] == s && arr[2] == m)
+		{
+			break;
+		}
+	}
+
+	std::cout << result;
+	return 0;
+}
