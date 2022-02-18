@@ -1,0 +1,100 @@
+#include <bits/stdc++.h>
+
+int main()
+{
+	std::ios::sync_with_stdio(0);
+	std::cin.tie(0);
+	
+	int n, m;
+	std::cin >> n >> m;
+
+	std::list<int> data;
+	for (int i = 1; i <= n; ++i)
+		data.push_back(i);
+
+	std::vector<int> number;
+	for (int i = 0; i < m; ++i)
+	{
+		int num;
+		std::cin >> num;
+		number.push_back(num);
+	}
+
+	int idx = 0, result = 0;
+	while (idx < number.size())
+	{
+		if (data.front() == number[idx])
+		{
+			data.pop_front();
+			idx++;
+			continue;
+		}
+
+		int left = 0, right = 0;
+		std::list<int> temp1 = data;
+		std::list<int> temp2 = data;
+		while (1)
+		{
+			if (temp1.front() == number[idx])
+			{
+				break;
+			}
+			else
+			{
+				left++;
+				temp1.push_back(temp1.front());
+				temp1.pop_front();
+			}
+		}
+
+		while (1)
+		{
+			if (temp2.front() == number[idx])
+			{
+				break;
+			}
+			else
+			{
+				right++;
+				temp2.push_front(temp2.back());
+				temp2.pop_back();
+			}
+		}
+
+		if (left <= right)
+		{
+			while (1)
+			{
+				if (data.front() == number[idx])
+				{
+					break;
+				}
+				else
+				{
+					data.push_back(data.front());
+					data.pop_front();
+					result++;
+				}
+			}
+		}
+		else
+		{
+			while (1)
+			{
+				if (data.front() == number[idx])
+				{
+					break;
+				}
+				else
+				{
+					data.push_front(data.back());
+					data.pop_back();
+					result++;
+				}
+			}
+		}
+	}
+
+	std::cout << result;
+	return 0;
+}
