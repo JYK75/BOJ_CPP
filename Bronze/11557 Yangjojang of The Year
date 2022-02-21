@@ -1,0 +1,37 @@
+#include <bits/stdc++.h>
+
+int main()
+{
+	std::ios::sync_with_stdio(0);
+	std::cin.tie(0);
+	
+	int T;
+	std::cin >> T;
+	while (T--)
+	{
+		int n;
+		std::cin >> n;
+
+		std::map<std::string, int> data;
+		while (n--)
+		{
+			std::string str;
+			std::cin >> str;
+			std::cin >> data[str];
+		}
+
+		std::string result;
+		int maxNum = 0;
+		for (auto d : data)
+		{
+			if (d.second > maxNum)
+			{
+				maxNum = d.second;
+				result = d.first;
+			}
+		}
+		std::cout << result << '\n';
+	}
+
+	return 0;
+}
