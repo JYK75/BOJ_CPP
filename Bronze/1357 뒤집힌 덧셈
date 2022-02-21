@@ -1,0 +1,24 @@
+#include <bits/stdc++.h>
+
+int main()
+{
+	std::ios::sync_with_stdio(0);
+	std::cin.tie(0);
+	
+	int x, y;
+	std::cin >> x >> y;
+	
+	std::string a = std::to_string(x);
+	std::string b = std::to_string(y);
+
+	std::reverse(a.begin(), a.end());
+	std::reverse(b.begin(), b.end());
+
+	int sum = std::stoi(a) + std::stoi(b);
+	std::string result = std::to_string(sum);
+	std::reverse(result.begin(), result.end());
+	
+	std::cout << std::stoi(result);
+
+	return 0;
+}
