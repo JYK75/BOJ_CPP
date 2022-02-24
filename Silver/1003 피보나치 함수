@@ -1,0 +1,33 @@
+#include <bits/stdc++.h>
+
+int main()
+{
+	std::ios::sync_with_stdio(0);
+	std::cin.tie(0);
+	
+    int T;
+    std::cin >> T;
+
+    int dp[50];
+    dp[0] = 0;
+    dp[1] = 1;
+    for (int i = 2; i <= 40; ++i)
+    {
+        dp[i] = dp[i - 1] + dp[i - 2];
+    }
+
+    while (T--)
+    {
+        int n;
+        std::cin >> n;
+        if (n == 0)
+        {
+            std::cout << "1 0" << '\n';
+            continue;
+        }
+
+        std::cout << dp[n - 1] << ' ' << dp[n] << '\n';
+    }
+
+	return 0;
+}
