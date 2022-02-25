@@ -1,0 +1,46 @@
+#include <bits/stdc++.h>
+
+int main()
+{
+	std::ios::sync_with_stdio(0);
+	std::cin.tie(0);
+	
+	int matrixA[100][100];
+	int matrixB[100][100];
+
+	int n, m;
+	std::cin >> n >> m;
+	for (int i = 0; i < n; ++i)
+	{
+		for (int j = 0; j < m; ++j)
+		{
+			std::cin >> matrixA[i][j];
+		}
+	}
+	
+	int n1, m1;
+	std::cin >> n1 >> m1;
+	for (int i = 0; i < n1; ++i)
+	{
+		for (int j = 0; j < m1; ++j)
+		{
+			std::cin >> matrixB[i][j];
+		}
+	}
+
+	for (int i = 0; i < n; ++i)
+	{
+		for (int j = 0; j < m1; ++j)
+		{
+			int result = 0;
+			for (int k = 0; k < m; ++k)
+			{
+				result += (matrixA[i][k] * matrixB[k][j]);
+			}
+			std::cout << result << ' ';
+		}
+		std::cout << '\n';
+	}
+
+	return 0;
+}
