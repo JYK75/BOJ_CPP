@@ -1,0 +1,16 @@
+#include <bits/stdc++.h>
+
+int main()
+{
+	std::ios::sync_with_stdio(0);
+	std::cin.tie(0);
+	
+	std::string str[100];
+	for (int i = 0; i < 100; ++i)
+		std::getline(std::cin, str[i]);
+
+	for (int i = 0; i < 100; ++i)
+		std::cout << str[i] << '\n';
+
+	return 0;
+}
