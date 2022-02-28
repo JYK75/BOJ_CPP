@@ -1,0 +1,53 @@
+#include <bits/stdc++.h>
+
+int main()
+{
+	std::ios::sync_with_stdio(0);
+	std::cin.tie(0);
+	
+	int n;
+	std::cin >> n;
+	
+	while (n--)
+	{
+		std::string str1, str2;
+		std::cin >> str1 >> str2;
+
+		if (str1.size() != str2.size())
+		{
+			std::cout << str1 << " & " << str2;
+			std::cout << " are NOT anagrams." << '\n';
+			continue;
+		}
+
+		std::map<char, int> data;
+		for (int i = 0; i < str1.size(); ++i)
+		{
+			data[str1[i]]++;
+		}
+
+		for (int i = 0; i < str2.size(); ++i)
+		{
+			data[str2[i]]--;
+		}
+
+		bool check = true;
+		for (auto d : data)
+		{
+			if (d.second != 0)
+			{
+				check = false;
+				break;
+			}
+		}
+
+		std::cout << str1 << " & " << str2;
+		
+		if (check)
+			std::cout << " are anagrams." << '\n';
+		else
+			std::cout << " are NOT anagrams." << '\n';
+	}
+
+	return 0;
+}
