@@ -1,0 +1,22 @@
+#include <bits/stdc++.h>
+
+int main()
+{
+	std::ios::sync_with_stdio(0);
+	std::cin.tie(0);
+	
+	while (1)
+	{
+		int num1, num2;
+		std::cin >> num1 >> num2;
+		if (num1 == 0 && num2 == 0)
+			break;
+
+		if (num1 > num2)
+			std::cout << "Yes" << '\n';
+		else
+			std::cout << "No" << '\n';
+	}
+
+	return 0;
+}
