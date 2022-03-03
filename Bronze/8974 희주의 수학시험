@@ -1,0 +1,31 @@
+#include <iostream>
+#include <vector>
+int main()
+{
+    std::ios::sync_with_stdio(0);
+    std::cin.tie(0);
+
+    std::vector<int> data;
+    for (int i = 1; i < 1001; ++i)
+    {
+        if (data.size() > 1001)
+            break;
+
+        for (int j = 0; j < i; ++j)
+        {
+            data.emplace_back(i);
+        }
+    }
+
+    int a, b;
+    std::cin >> a >> b;
+
+    int result = 0;
+    for (int i = a; i <= b; ++i)
+    {
+        result += data[i-1];
+    }
+    std::cout << result;
+
+    return 0;
+};
