@@ -1,0 +1,56 @@
+#include <iostream>
+#include <string>
+#include <vector>
+int main()
+{
+    std::ios::sync_with_stdio(0);
+    std::cin.tie(0);
+    
+    std::string str;
+    std::cin >> str;
+
+    std::vector<std::string> result;
+    result.emplace_back("..#..");
+    result.emplace_back(".#.#.");
+    std::string temp = "#.";
+    temp += str[0];
+    temp += ".#";
+    result.emplace_back(temp);
+    result.emplace_back(".#.#.");
+    result.emplace_back("..#..");
+
+    if (str.size() != 1)
+    {
+        for (int i = 2; i < str.size() + 1; ++i)
+        {
+            if (i % 3 == 0)
+            {
+                result[0] += ".*..";
+                result[1] += "*.*.";
+                result[2][result[2].size() - 1] = '*';
+                result[2] += ".";
+                result[2] += str[i - 1];
+                result[2] += ".*";
+                result[3] += "*.*.";
+                result[4] += ".*..";
+            }
+            else
+            {
+                result[0] += ".#..";
+                result[1] += "#.#.";
+                result[2] += ".";
+                result[2] += str[i - 1];
+                result[2] += ".#";
+                result[3] += "#.#.";
+                result[4] += ".#..";
+            }
+        }
+    }
+
+    for (int i = 0; i < result.size(); ++i)
+    {
+        std::cout << result[i] << '\n';
+    }
+
+    return 0;
+};
