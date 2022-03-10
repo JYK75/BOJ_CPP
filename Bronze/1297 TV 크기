@@ -1,0 +1,21 @@
+#include <bits/stdc++.h>
+
+int main()
+{
+	std::ios::sync_with_stdio(0);
+	std::cin.tie(0);
+	
+	int d, h, w;
+	std::cin >> d >> h >> w;
+
+	double x = sqrt((double)(d * d) / 
+		(h * h + w * w));
+
+	int height, weight;
+	height = floor(h * x);
+	weight = floor(w * x);
+
+	std::cout << height << ' ' << weight;
+
+	return 0;
+}
