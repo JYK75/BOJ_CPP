@@ -1,0 +1,24 @@
+#include <iostream>
+
+int tile[1000001];
+
+int main()
+{
+    std::ios::sync_with_stdio(0);
+    std::cin.tie(0);
+
+    int n;
+    std::cin >> n;
+
+    tile[1] = 1 % 15746;
+    tile[2] = 2 % 15746;
+
+    for (int i = 3; i <= n; ++i)
+    {
+        tile[i] = (tile[i - 1] + tile[i - 2]) % 15746;
+    }
+
+    std::cout << tile[n];
+
+    return 0;
+};
