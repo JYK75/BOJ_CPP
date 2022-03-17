@@ -1,0 +1,28 @@
+#include <bits/stdc++.h>
+
+int tree[100001];
+
+int main()
+{
+	std::ios::sync_with_stdio(0);
+	std::cin.tie(0);
+	
+	
+	int n = 0, result = 0;
+	std::cin >> n;
+	for (int i = 0; i < n; ++i)
+	{
+		std::cin >> tree[i];
+	}
+	
+	std::sort(tree, tree + n, std::greater<>());
+
+	for (int i = 0; i < n; ++i)
+	{
+		result = std::max(result, tree[i] + i + 1);
+	}
+
+	std::cout << result+1;
+
+	return 0;
+}
