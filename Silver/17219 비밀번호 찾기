@@ -1,0 +1,27 @@
+#include <iostream>
+#include <unordered_map>
+
+int main()
+{
+    std::ios::sync_with_stdio(0);
+    std::cin.tie(0);
+
+    int n, m;
+    std::cin >> n >> m;
+
+    std::unordered_map<std::string, std::string> table;
+    std::string address, password;
+    for (int i = 0; i < n; i++)
+    {
+        std::cin >> address >> password;
+        table.insert(make_pair(address, password));
+    }
+
+    for (int i = 0; i < m; i++)
+    {
+        std::cin >> address;
+        std::cout << table[address] << '\n';
+    }
+
+    return 0;
+};
